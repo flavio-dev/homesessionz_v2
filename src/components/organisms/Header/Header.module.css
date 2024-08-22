@@ -1,0 +1,15 @@
+.header {
+  color: red;
+}
+
+.headerInner {
+  color: grey;
+}
+
+.headerPlaceholder {
+  color: black;
+}
+
+.headerSearch {
+  color: green;
+}
