@@ -18,8 +18,8 @@ export default async function Home() {
   return (
     <main className={styles.main}>
       <ul>
-        {mixes.map((mix) => (
-          <li key={mix.key}>
+        {mixes.map((mix: IMix) => (
+          <li key={mix.slug}>
             <Link href={mix.slug}>{mix.slug}</Link>
           </li>
         ))}
