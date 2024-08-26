@@ -1,5 +1,4 @@
 :root {
-  --base-font-family: "Comfortaa", "Open Sans";
   --color-black: #0f1121;
   --color-white: #fcfcfc;
 
@@ -9,8 +8,6 @@
   --height-header-small: 85px;
   --height-header-big: 105px;
   --height-footer: 115px;
-
-  --medium-and-up: "only screen and (min-width : #{$small-screen-up})";
 }
 
 * {
@@ -58,7 +55,6 @@ td {
 body {
   background-color: var(--color-white);
   color: var(--color-black);
-  font-family: var(--base-font-family);
   text-transform: lowercase;
 
   font-size: 15px;

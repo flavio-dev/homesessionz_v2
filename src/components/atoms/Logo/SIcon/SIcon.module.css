@@ -1,0 +1,36 @@
+.sIcon {
+  fill: var(--color-white);
+  height: 40px;
+  opacity: 0;
+  position: absolute;
+  bottom: 5px;
+  left: 7px;
+  width: 40px;
+
+  animation-name: pulseS;
+  animation-duration: 5.75s;
+  animation-timing-function: ease-out;
+  animation-delay: 1.5s;
+  animation-iteration-count: 1;
+  animation-play-state: running;
+  animation-fill-mode: forwards;
+
+  /* medium-and-up */
+  @media only screen and (min-width: 601px) {
+    bottom: 7px;
+    height: 50px;
+    left: 34px;
+    width: 50px;
+  }
+}
+
+@keyframes pulseS {
+  0%,
+  66% {
+    opacity: 0;
+  }
+  33%,
+  100% {
+    opacity: 1;
+  }
+}

@@ -1,11 +1,11 @@
 import Link from "next/link";
 
-import styles from "./Footer.module.css";
-import thisYear from "@/utils/thisYear";
-
 import HeartIcon from "@/components/atoms/HeartIcon";
 import InstaIcon from "@/components/atoms/InstaIcon";
 import MixcloudIcon from "@/components/atoms/MixcloudIcon";
+
+import thisYear from "@/utils/thisYear";
+import styles from "./Footer.module.css";
 
 export const Footer = () => (
   <div className={styles.footer}>

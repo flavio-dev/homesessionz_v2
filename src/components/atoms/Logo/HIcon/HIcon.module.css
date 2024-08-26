@@ -1,0 +1,36 @@
+.hIcon {
+  fill: var(--color-white);
+  height: 40px;
+  left: -10px;
+  opacity: 0;
+  position: absolute;
+  top: 11px;
+  width: 40px;
+
+  animation-name: pulseH;
+  animation-duration: 5.25s;
+  animation-timing-function: ease-out;
+  animation-delay: 1s;
+  animation-iteration-count: 1;
+  animation-play-state: running;
+  animation-fill-mode: forwards;
+
+  /* medium-and-up */
+  @media only screen and (min-width: 601px) {
+    height: 50px;
+    left: 14px;
+    top: 12px;
+    width: 50px;
+  }
+}
+
+@keyframes pulseH {
+  0%,
+  66% {
+    opacity: 0;
+  }
+  33%,
+  100% {
+    opacity: 1;
+  }
+}
