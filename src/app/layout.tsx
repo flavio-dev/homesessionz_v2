@@ -35,7 +35,7 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const mixes: IMix[] = await getMixes();
+  const mixes: IMix[] | String[] = await getMixes();
 
   return (
     <html lang="en">
