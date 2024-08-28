@@ -1,20 +1,12 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+"use client";
+import { useContext } from "react";
 import Link from "next/link";
+import styles from "./page.module.css";
+import { MixesContext } from "@/contexts/mixesContext";
 
-export const getMixes = async () => {
-  const res = await fetch(`https://api.mixcloud.com/homesessionz/favorites/`, {
-    cache: "force-cache",
-  });
-  const { data: mixes } = await res.json();
+export default function Home() {
+  const { mixes } = useContext(MixesContext);
 
-  // By returning { props: { mixes } }, the Home component
-  // will receive `mixes` as a prop at build time
-  return mixes;
-};
-
-export default async function Home() {
-  const mixes = await getMixes();
   return (
     <main className={styles.main}>
       <ul>
