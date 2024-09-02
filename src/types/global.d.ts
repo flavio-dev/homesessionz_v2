@@ -1,7 +1,12 @@
 export {};
 
 declare global {
-  interface IMix {
+  type IMix = {
     slug: string;
-  }
+  };
+
+  type IMixesProviderProps = {
+    children: React.ReactNode;
+    mixes: IMix[];
+  };
 }
