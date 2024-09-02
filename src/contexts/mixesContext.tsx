@@ -2,14 +2,14 @@
 import { createContext, useState } from "react";
 export const MixesContext = createContext({
   mixes: [],
-  saveMixes: ([]) => {},
+  saveMixes: () => {},
 });
 
 const MixesProvider = ({
   children,
 }: Readonly<{ children: React.ReactNode }>) => {
   const [mixes, setMixes] = useState([]);
-  const saveMixes = (listOfMixes) => {
+  const saveMixes = (listOfMixes: IMix[]) => {
     setMixes(listOfMixes);
   };
 
