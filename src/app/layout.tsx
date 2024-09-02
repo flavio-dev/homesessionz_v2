@@ -40,8 +40,8 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <body className={comfortaa.className}>
-        <MixesProvider>
-          <Header mixes={mixes} />
+        <MixesProvider mixes={mixes}>
+          <Header />
           {children}
           <Footer />
         </MixesProvider>

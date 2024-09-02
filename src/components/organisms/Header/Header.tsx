@@ -6,10 +6,8 @@ import { MixesContext } from "@/contexts/mixesContext";
 // import SearchContainer from 'components/SearchContainer'
 import styles from "./Header.module.css";
 
-export const Header = ({ mixes }) => {
-  const { saveMixes } = useContext(MixesContext);
-  saveMixes(mixes);
-
+export const Header = () => {
+  const { mixes } = useContext(MixesContext);
   return (
     <div className={styles.header}>
       <div className={`default-wrapper-width ${styles.headerInner}`}>

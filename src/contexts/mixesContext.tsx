@@ -1,22 +1,12 @@
 "use client";
-import { createContext, useState } from "react";
+import { createContext } from "react";
 export const MixesContext = createContext({
   mixes: [],
-  saveMixes: () => {},
 });
 
-const MixesProvider = ({
-  children,
-}: Readonly<{ children: React.ReactNode }>) => {
-  const [mixes, setMixes] = useState([]);
-  const saveMixes = (listOfMixes: IMix[]) => {
-    setMixes(listOfMixes);
-  };
-
+const MixesProvider = ({ children, mixes }) => {
   return (
-    <MixesContext.Provider value={{ mixes, saveMixes }}>
-      {children}
-    </MixesContext.Provider>
+    <MixesContext.Provider value={{ mixes }}>{children}</MixesContext.Provider>
   );
 };
 
