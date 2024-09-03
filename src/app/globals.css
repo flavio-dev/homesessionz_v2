@@ -1,5 +1,6 @@
 :root {
   --color-black: #0f1121;
+  --color-black-opacity: rgba(15, 17, 33, 0.5);
   --color-white: #fcfcfc;
 
   --max-screen-width: 1240px;
@@ -90,6 +91,25 @@ a {
 
   &:hover {
     text-decoration: none;
+  }
+}
+
+input[type="text"],
+input[type="name"],
+input[type="email"],
+textarea {
+  transition: border 0.4s ease;
+  background-color: var(--color-white);
+  border: 2px solid var(--color-black-opacity);
+  box-sizing: border-box;
+  padding: 8px 15px;
+
+  &:focus {
+    border-color: var(--color-black);
+  }
+
+  &::placeholder {
+    color: var(--color-black-opacity);
   }
 }
 
