@@ -18,5 +18,6 @@ declare global {
 
   type ISearchModalProps = {
     searchText: string;
+    clearInput: () => void;
   };
 }

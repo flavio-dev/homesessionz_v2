@@ -1,6 +1,5 @@
 .sm {
   background-color: var(--color-white-opacity);
-  bottom: 0;
   color: var(--color-black);
   left: 0;
   opacity: 0;
@@ -18,9 +17,15 @@
 
 .smVisible {
   opacity: 1;
+  bottom: 0;
+
+  & .smInner {
+    display: block;
+  }
 }
 
 .smInner {
+  display: none;
   & h2 {
     text-align: center;
     margin: 20px 0;

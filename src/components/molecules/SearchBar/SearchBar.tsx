@@ -35,7 +35,7 @@ export const SearchBar = () => {
 
   return (
     <>
-      <SearchModal searchText={searchText} />
+      <SearchModal searchText={searchText} clearInput={clearInput} />
       <div
         className={
           isFocused ? `${styles.search} ${styles.searchFocused}` : styles.search

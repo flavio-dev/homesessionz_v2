@@ -6,37 +6,39 @@ import { MixesContext } from "@/contexts/mixesContext";
 
 import styles from "./SearchModal.module.css";
 
-export const SearchModal = ({ searchText }: ISearchModalProps) => {
+export const SearchModal = ({ searchText, clearInput }: ISearchModalProps) => {
   const [resultsInTags, setResultsInTags] = useState([] as IMix[]);
   const [resultsInName, setResultsInName] = useState([] as IMix[]);
   const { mixes } = useContext(MixesContext);
 
   useEffect(() => {
-    const localResultsInTags = [];
-    const localResultsInName = [];
-    const searchTextLower = searchText.toLowerCase();
+    if (searchText.length) {
+      const localResultsInTags = [];
+      const localResultsInName = [];
+      const searchTextLower = searchText.toLowerCase();
 
-    for (const mix of mixes) {
-      const nameOfTheShow = mix.name.toLowerCase();
-      const listOfTags = mix.tags;
+      for (const mix of mixes) {
+        const nameOfTheShow = mix.name.toLowerCase();
+        const listOfTags = mix.tags;
 
-      // is the typed text in the name:
-      if (nameOfTheShow.includes(searchTextLower)) {
-        localResultsInName.push(mix);
-      }
+        // is the typed text in the name:
+        if (nameOfTheShow.includes(searchTextLower)) {
+          localResultsInName.push(mix);
+        }
 
-      for (const tag of listOfTags) {
-        const tagName = tag.name.toLowerCase();
-        // is the typed text is in one of the tags:
-        if (tagName.includes(searchTextLower)) {
-          localResultsInTags.push(mix);
-          break;
+        for (const tag of listOfTags) {
+          const tagName = tag.name.toLowerCase();
+          // is the typed text is in one of the tags:
+          if (tagName.includes(searchTextLower)) {
+            localResultsInTags.push(mix);
+            break;
+          }
         }
       }
-    }
 
-    setResultsInTags(localResultsInTags);
-    setResultsInName(localResultsInName);
+      setResultsInTags(localResultsInTags);
+      setResultsInName(localResultsInName);
+    }
   }, [searchText, mixes, setResultsInName, setResultsInTags]);
 
   return (
@@ -53,7 +55,9 @@ export const SearchModal = ({ searchText }: ISearchModalProps) => {
             <div className={styles.smResults}>
               {resultsInName.map((mixFromName) => (
                 <div key={mixFromName.name} className={styles.smResult}>
-                  <Link href={mixFromName.slug}>{mixFromName.name}</Link>
+                  <Link href={mixFromName.slug} onClick={clearInput}>
+                    {mixFromName.name}
+                  </Link>
                 </div>
               ))}
             </div>
@@ -63,7 +67,9 @@ export const SearchModal = ({ searchText }: ISearchModalProps) => {
             <div className={styles.smResults}>
               {resultsInTags.map((mixFromTag) => (
                 <div key={mixFromTag.name} className={styles.smResult}>
-                  <Link href={mixFromTag.slug}>{mixFromTag.name}</Link>
+                  <Link href={mixFromTag.slug} onClick={clearInput}>
+                    {mixFromTag.name}
+                  </Link>
                 </div>
               ))}
             </div>
