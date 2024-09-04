@@ -44,15 +44,31 @@ export const SearchModal = ({ searchText }: ISearchModalProps) => {
         searchText.length ? `${styles.sm} ${styles.smVisible}` : styles.sm
       }
     >
-      <p>searchText - {searchText}</p>
-      <p>
-        results for the resultsInTags ={" "}
-        {resultsInTags.map((mixFromTag) => mixFromTag.name)}
-      </p>
-      <p>
-        results for the resultsInName ={" "}
-        {resultsInName.map((mixFromName) => mixFromName.name)}
-      </p>
+      <section className={`default-wrapper-width ${styles.smInner}`}>
+        <h2>results for {searchText}...</h2>
+        <section className={styles.smResultsWrapper}>
+          <div className={styles.smCol}>
+            <h3 className={styles.smColTitle}>... in name</h3>
+            <div className={styles.smResults}>
+              {resultsInName.map((mixFromName) => (
+                <div key={mixFromName.name} className={styles.smResult}>
+                  {mixFromName.name}
+                </div>
+              ))}
+            </div>
+          </div>
+          <div className={styles.smCol}>
+            <h3 className={styles.smColTitle}>... in tags</h3>
+            <div className={styles.smResults}>
+              {resultsInTags.map((mixFromTag) => (
+                <div key={mixFromTag.name} className={styles.smResult}>
+                  {mixFromTag.name}
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      </section>
     </div>
   );
 };

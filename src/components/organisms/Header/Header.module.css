@@ -2,7 +2,7 @@
   background-color: var(--color-black);
   border-bottom: 5px solid var(--color-white);
   color: var(--color-white);
-  height: 80px;
+  height: var(--height-header-small-screen);
   position: fixed;
   top: 0;
   width: 100%;
@@ -19,7 +19,7 @@
 
   /* medium-and-up */
   @media only screen and (min-width: 601px) {
-    height: 100px;
+    height: var(--height-header-big-screen);
   }
 }
 
@@ -51,8 +51,4 @@
   @media only screen and (min-width: 1051px) {
     width: 280px;
   }
-}
-
-.headerSearch {
-  color: green;
 }

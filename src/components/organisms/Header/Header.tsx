@@ -11,7 +11,7 @@ export const Header = () => {
           <Link href="/">høme sessiønz</Link>
         </div>
         <Link href="/">{<Logo />}</Link>
-        <div className={styles.headerSearch}>
+        <div>
           <SearchBar />
         </div>
       </div>
