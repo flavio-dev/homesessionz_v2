@@ -1,5 +1,6 @@
 "use client";
 import { useContext, useEffect, useState } from "react";
+import Link from "next/link";
 
 import { MixesContext } from "@/contexts/mixesContext";
 
@@ -52,7 +53,7 @@ export const SearchModal = ({ searchText }: ISearchModalProps) => {
             <div className={styles.smResults}>
               {resultsInName.map((mixFromName) => (
                 <div key={mixFromName.name} className={styles.smResult}>
-                  {mixFromName.name}
+                  <Link href={mixFromName.slug}>{mixFromName.name}</Link>
                 </div>
               ))}
             </div>
@@ -62,7 +63,7 @@ export const SearchModal = ({ searchText }: ISearchModalProps) => {
             <div className={styles.smResults}>
               {resultsInTags.map((mixFromTag) => (
                 <div key={mixFromTag.name} className={styles.smResult}>
-                  {mixFromTag.name}
+                  <Link href={mixFromTag.slug}>{mixFromTag.name}</Link>
                 </div>
               ))}
             </div>

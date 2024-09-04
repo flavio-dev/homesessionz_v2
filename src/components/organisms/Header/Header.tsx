@@ -8,7 +8,9 @@ export const Header = () => {
     <div className={styles.header}>
       <div className={`default-wrapper-width ${styles.headerInner}`}>
         <div className={styles.headerTitle}>
-          <Link href="/">høme sessiønz</Link>
+          <Link className={styles.headerLink} href="/">
+            høme sessiønz
+          </Link>
         </div>
         <Link href="/">{<Logo />}</Link>
         <div>
