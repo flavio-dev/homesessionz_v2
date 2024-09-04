@@ -1,12 +1,11 @@
 "use client";
-import { useContext } from "react";
+import { useState, useRef } from "react";
 
 import CrossIcon from "@/components/atoms/CrossIcon";
 import SearchIcon from "@/components/atoms/SearchIcon";
-import { MixesContext } from "@/contexts/mixesContext";
+import SearchModal from "@/components/molecules/SearchModal";
 
 import styles from "./SearchBar.module.css";
-import { useState, useRef } from "react";
 
 export const SearchBar = () => {
   const [searchText, setSearchText] = useState("");
@@ -25,48 +24,47 @@ export const SearchBar = () => {
     if (!isFocused && input && input.current) {
       input.current.focus();
       setIsFocused(true);
-      console.log("setting the focus to true");
     }
   };
 
   const blurOnInput = () => {
     if (isFocused && !searchText.length) {
-      console.log("setting the focus to false");
       setIsFocused(false);
     }
   };
 
-  const { mixes } = useContext(MixesContext);
-
   return (
-    <div
-      className={
-        isFocused ? `${styles.search} ${styles.searchFocused}` : styles.search
-      }
-    >
+    <>
+      <SearchModal searchText={searchText} />
       <div
         className={
-          searchText.length
-            ? `${styles.searchClearIcon} ${styles.searchHasText}`
-            : styles.searchClearIcon
+          isFocused ? `${styles.search} ${styles.searchFocused}` : styles.search
         }
-        onClick={clearInput}
       >
-        <CrossIcon />
+        <div
+          className={
+            searchText.length
+              ? `${styles.searchClearIcon} ${styles.searchHasText}`
+              : styles.searchClearIcon
+          }
+          onClick={clearInput}
+        >
+          <CrossIcon />
+        </div>
+        <div className={styles.searchIcon} onClick={focusOnInput}>
+          <SearchIcon />
+        </div>
+        <input
+          ref={input}
+          className={styles.searchInput}
+          type="text"
+          value={searchText}
+          onChange={handleChangeInput}
+          onFocus={focusOnInput}
+          onBlur={blurOnInput}
+        />
       </div>
-      <div className={styles.searchIcon} onClick={focusOnInput}>
-        <SearchIcon />
-      </div>
-      <input
-        ref={input}
-        className={styles.searchInput}
-        type="text"
-        value={searchText}
-        onChange={handleChangeInput}
-        onFocus={focusOnInput}
-        onBlur={blurOnInput}
-      />
-    </div>
+    </>
   );
 };
 

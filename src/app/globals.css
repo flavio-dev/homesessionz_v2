@@ -2,6 +2,7 @@
   --color-black: #0f1121;
   --color-black-opacity: rgba(15, 17, 33, 0.5);
   --color-white: #fcfcfc;
+  --color-white-opacity: rgba(252, 252, 252, 0.95);
 
   --max-screen-width: 1240px;
   --small-screen-inner-width: 95%;
