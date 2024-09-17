@@ -1,7 +1,7 @@
 "use client";
 import { useContext } from "react";
-import Link from "next/link";
 import styles from "./page.module.css";
+import CloudCast from "@/components/organisms/CouldCast/CloudCast";
 import { MixesContext } from "@/contexts/mixesContext";
 
 export default function Home() {
@@ -9,13 +9,13 @@ export default function Home() {
 
   return (
     <main className={styles.main}>
-      <ul>
+      <div className={styles.container}>
         {mixes.map((mix: IMix) => (
-          <li key={mix.slug}>
-            <Link href={mix.slug}>{mix.slug}</Link>
-          </li>
+          <div className={styles.cloudcast} key={mix.slug}>
+            <CloudCast mix={mix} />
+          </div>
         ))}
-      </ul>
+      </div>
     </main>
   );
 }

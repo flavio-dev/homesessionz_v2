@@ -1,7 +1,33 @@
 .main {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  display: block;
+  padding-top: var(--height-header-small-screen);
+
+  /* medium-and-up */
+  @media only screen and (min-width: 601px) {
+    padding-top: var(--height-header-big-screen);
+  }
+}
+
+.container {
   align-items: center;
-  padding: 6rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.cloudcast {
+  border-width: 2px;
+  border-color: black;
+  border: dotted;
+  width: 100%;
+
+  /* medium-and-up */
+  @media only screen and (min-width: 601px) {
+    width: 49%;
+  }
+
+  /* large-and-up */
+  @media only screen and (min-width: 1051px) {
+    width: 32%;
+  }
 }

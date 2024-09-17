@@ -20,4 +20,8 @@ declare global {
     searchText: string;
     clearInput: () => void;
   };
+
+  type ICloudCastProps = {
+    mix: IMix;
+  };
 }
