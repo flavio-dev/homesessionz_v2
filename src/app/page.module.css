@@ -16,9 +16,6 @@
 }
 
 .cloudcast {
-  border-width: 2px;
-  border-color: black;
-  border: dotted;
   width: 100%;
 
   /* medium-and-up */

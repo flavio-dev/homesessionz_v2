@@ -9,6 +9,11 @@ declare global {
     slug: string;
     name: string;
     tags: ITag[];
+    pictures: IMixPicture;
+  };
+
+  type IMixPicture = {
+    extra_large: string;
   };
 
   type IMixesProviderProps = {

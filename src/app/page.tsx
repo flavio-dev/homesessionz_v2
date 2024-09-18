@@ -9,7 +9,7 @@ export default function Home() {
 
   return (
     <main className={styles.main}>
-      <div className={styles.container}>
+      <div className={`default-wrapper-width ${styles.container}`}>
         {mixes.map((mix: IMix) => (
           <div className={styles.cloudcast} key={mix.slug}>
             <CloudCast mix={mix} />
