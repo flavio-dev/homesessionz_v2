@@ -5,6 +5,7 @@
 // const __dirname = path.dirname(__filename); // get the name of the directory
 
 const nextConfig = {
+  output: "export",
   images: {
     remotePatterns: [
       { protocol: "https", hostname: "thumbnailer.mixcloud.com" },

@@ -7,7 +7,7 @@ export async function generateStaticParams() {
   }));
 }
 
-export const getMixInfo = async (slug: string) => {
+const getMixInfo = async (slug: string) => {
   const res = await fetch(`https://api.mixcloud.com/homesessionz/${slug}`, {
     cache: "force-cache",
   });
